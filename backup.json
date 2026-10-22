@@ -1,0 +1,693 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$BeckP0hJqHQH7SORE7aYqz$yC949n30k15+jAvq6DeZLpJxmsID03lG2DUiulpMPjg=",
+    "last_login": "2026-10-22T17:55:30.348Z",
+    "is_superuser": true,
+    "username": "JonatasAdmin",
+    "first_name": "",
+    "last_name": "",
+    "email": "jonatasdsm123@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-10-20T19:14:00.607Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$EaFc2TXI3ogFzreARcFYyJ$YVO8X04+rscXKMUkx2pPg4ME2FYpkLHnKL6jdSQDWCg=",
+    "last_login": "2026-10-20T19:49:30.566Z",
+    "is_superuser": false,
+    "username": "maria",
+    "first_name": "Maria",
+    "last_name": "Moraes",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-20T19:19:29Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$aChBhBB8u4t9ml8F9NajRK$53jw9dAez8seS6h4zLWj5XtQa+u3a/pv7hO3OG+TH4Q=",
+    "last_login": "2026-10-22T18:30:17.119Z",
+    "is_superuser": false,
+    "username": "Clarêncio",
+    "first_name": "",
+    "last_name": "",
+    "email": "clarenciootimista@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-22T18:26:23.404Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 1,
+  "fields": {
+    "name": "Romance",
+    "description": ""
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 2,
+  "fields": {
+    "name": "Ficção científica",
+    "description": ""
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 3,
+  "fields": {
+    "name": "Tecnologia",
+    "description": ""
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 4,
+  "fields": {
+    "name": "História",
+    "description": ""
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 5,
+  "fields": {
+    "name": "Infantojuvenil",
+    "description": ""
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 1,
+  "fields": {
+    "title": "Harry Potter e a Pedra Filosofal",
+    "author": "J. K. Rowling",
+    "isbn": "978-853251101",
+    "copies_total": 1,
+    "image": "book_covers/61jgm6ooXzL._AC_UF10001000_QL80_.jpg",
+    "category": null,
+    "language": "",
+    "publisher": "",
+    "edition_year": null,
+    "created_at": "2026-10-20T19:16:27.100Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 2,
+  "fields": {
+    "title": "Alice no Pais das Maravilhas",
+    "author": "Lewis Carroll",
+    "isbn": "9786584956360",
+    "copies_total": 1,
+    "image": "book_covers/9786584956360.webp",
+    "category": null,
+    "language": "",
+    "publisher": "",
+    "edition_year": null,
+    "created_at": "2026-10-20T19:17:46.817Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 3,
+  "fields": {
+    "title": "Coraline",
+    "author": "Neil Gaiman",
+    "isbn": "978-855100675",
+    "copies_total": 1,
+    "image": "book_covers/91DZobBc1BL._SY466_.jpg",
+    "category": null,
+    "language": "",
+    "publisher": "",
+    "edition_year": null,
+    "created_at": "2026-10-20T19:18:49.697Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 4,
+  "fields": {
+    "title": "Dom Casmurro",
+    "author": "Machado de Assis",
+    "isbn": "9788535910663",
+    "copies_total": 3,
+    "image": "",
+    "category": null,
+    "language": "",
+    "publisher": "",
+    "edition_year": null,
+    "created_at": "2026-10-20T19:23:21.413Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 5,
+  "fields": {
+    "title": "Dom Casmurro",
+    "author": "Machado de Assis",
+    "isbn": "9780000000001",
+    "copies_total": 3,
+    "image": "",
+    "category": 1,
+    "language": "Português",
+    "publisher": "",
+    "edition_year": 1899,
+    "created_at": "2026-10-20T19:48:18.926Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 6,
+  "fields": {
+    "title": "Memórias Póstumas de Brás Cubas",
+    "author": "Machado de Assis",
+    "isbn": "9780000000002",
+    "copies_total": 2,
+    "image": "",
+    "category": 1,
+    "language": "Português",
+    "publisher": "",
+    "edition_year": 1881,
+    "created_at": "2026-10-20T19:48:18.938Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 7,
+  "fields": {
+    "title": "O Cortiço",
+    "author": "Aluísio Azevedo",
+    "isbn": "9780000000003",
+    "copies_total": 2,
+    "image": "",
+    "category": 1,
+    "language": "Português",
+    "publisher": "",
+    "edition_year": 1890,
+    "created_at": "2026-10-20T19:48:18.945Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 8,
+  "fields": {
+    "title": "Iracema",
+    "author": "José de Alencar",
+    "isbn": "9780000000004",
+    "copies_total": 1,
+    "image": "",
+    "category": 1,
+    "language": "Português",
+    "publisher": "",
+    "edition_year": 1865,
+    "created_at": "2026-10-20T19:48:18.952Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 9,
+  "fields": {
+    "title": "Capitães da Areia",
+    "author": "Jorge Amado",
+    "isbn": "9780000000005",
+    "copies_total": 2,
+    "image": "",
+    "category": 1,
+    "language": "Português",
+    "publisher": "",
+    "edition_year": 1937,
+    "created_at": "2026-10-20T19:48:18.959Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 10,
+  "fields": {
+    "title": "Vidas Secas",
+    "author": "Graciliano Ramos",
+    "isbn": "9780000000006",
+    "copies_total": 2,
+    "image": "",
+    "category": 1,
+    "language": "Português",
+    "publisher": "",
+    "edition_year": 1938,
+    "created_at": "2026-10-20T19:48:18.966Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 11,
+  "fields": {
+    "title": "A Hora da Estrela",
+    "author": "Clarice Lispector",
+    "isbn": "9780000000007",
+    "copies_total": 1,
+    "image": "",
+    "category": 1,
+    "language": "Português",
+    "publisher": "",
+    "edition_year": 1977,
+    "created_at": "2026-10-20T19:48:18.974Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 12,
+  "fields": {
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "isbn": "9780000000008",
+    "copies_total": 1,
+    "image": "",
+    "category": 1,
+    "language": "Inglês",
+    "publisher": "",
+    "edition_year": 1813,
+    "created_at": "2026-10-20T19:48:18.980Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 13,
+  "fields": {
+    "title": "Cien años de soledad",
+    "author": "Gabriel García Márquez",
+    "isbn": "9780000000009",
+    "copies_total": 1,
+    "image": "",
+    "category": 1,
+    "language": "Espanhol",
+    "publisher": "",
+    "edition_year": 1967,
+    "created_at": "2026-10-20T19:48:18.987Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 14,
+  "fields": {
+    "title": "1984",
+    "author": "George Orwell",
+    "isbn": "9780000000010",
+    "copies_total": 3,
+    "image": "",
+    "category": 2,
+    "language": "Português",
+    "publisher": "",
+    "edition_year": 1949,
+    "created_at": "2026-10-20T19:48:18.994Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 15,
+  "fields": {
+    "title": "Admirável Mundo Novo",
+    "author": "Aldous Huxley",
+    "isbn": "9780000000011",
+    "copies_total": 2,
+    "image": "",
+    "category": 2,
+    "language": "Português",
+    "publisher": "",
+    "edition_year": 1932,
+    "created_at": "2026-10-20T19:48:19.001Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 16,
+  "fields": {
+    "title": "Fahrenheit 451",
+    "author": "Ray Bradbury",
+    "isbn": "9780000000012",
+    "copies_total": 1,
+    "image": "",
+    "category": 2,
+    "language": "Português",
+    "publisher": "",
+    "edition_year": 1953,
+    "created_at": "2026-10-20T19:48:19.006Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 17,
+  "fields": {
+    "title": "Duna",
+    "author": "Frank Herbert",
+    "isbn": "9780000000013",
+    "copies_total": 2,
+    "image": "",
+    "category": 2,
+    "language": "Português",
+    "publisher": "",
+    "edition_year": 1965,
+    "created_at": "2026-10-20T19:48:19.014Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 18,
+  "fields": {
+    "title": "Eu, Robô",
+    "author": "Isaac Asimov",
+    "isbn": "9780000000014",
+    "copies_total": 1,
+    "image": "",
+    "category": 2,
+    "language": "Português",
+    "publisher": "",
+    "edition_year": 1950,
+    "created_at": "2026-10-20T19:48:19.021Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 19,
+  "fields": {
+    "title": "Python Fluente",
+    "author": "Luciano Ramalho",
+    "isbn": "9780000000015",
+    "copies_total": 2,
+    "image": "",
+    "category": 3,
+    "language": "Português",
+    "publisher": "",
+    "edition_year": 2015,
+    "created_at": "2026-10-20T19:48:19.028Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 20,
+  "fields": {
+    "title": "Código Limpo",
+    "author": "Robert C. Martin",
+    "isbn": "9780000000016",
+    "copies_total": 2,
+    "image": "",
+    "category": 3,
+    "language": "Português",
+    "publisher": "",
+    "edition_year": 2008,
+    "created_at": "2026-10-20T19:48:19.036Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 21,
+  "fields": {
+    "title": "Entendendo Algoritmos",
+    "author": "Aditya Bhargava",
+    "isbn": "9780000000017",
+    "copies_total": 3,
+    "image": "",
+    "category": 3,
+    "language": "Português",
+    "publisher": "",
+    "edition_year": 2016,
+    "created_at": "2026-10-20T19:48:19.043Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 22,
+  "fields": {
+    "title": "Pense em Python",
+    "author": "Allen B. Downey",
+    "isbn": "9780000000018",
+    "copies_total": 2,
+    "image": "",
+    "category": 3,
+    "language": "Português",
+    "publisher": "",
+    "edition_year": 2012,
+    "created_at": "2026-10-20T19:48:19.050Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 23,
+  "fields": {
+    "title": "Automate the Boring Stuff with Python",
+    "author": "Al Sweigart",
+    "isbn": "9780000000019",
+    "copies_total": 1,
+    "image": "",
+    "category": 3,
+    "language": "Inglês",
+    "publisher": "",
+    "edition_year": 2015,
+    "created_at": "2026-10-20T19:48:19.056Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 24,
+  "fields": {
+    "title": "Sapiens",
+    "author": "Yuval Noah Harari",
+    "isbn": "9780000000020",
+    "copies_total": 2,
+    "image": "",
+    "category": 4,
+    "language": "Português",
+    "publisher": "",
+    "edition_year": 2011,
+    "created_at": "2026-10-20T19:48:19.065Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 25,
+  "fields": {
+    "title": "O Povo Brasileiro",
+    "author": "Darcy Ribeiro",
+    "isbn": "9780000000021",
+    "copies_total": 1,
+    "image": "",
+    "category": 4,
+    "language": "Português",
+    "publisher": "",
+    "edition_year": 1995,
+    "created_at": "2026-10-20T19:48:19.071Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 26,
+  "fields": {
+    "title": "Raízes do Brasil",
+    "author": "Sérgio Buarque de Holanda",
+    "isbn": "9780000000022",
+    "copies_total": 1,
+    "image": "",
+    "category": 4,
+    "language": "Português",
+    "publisher": "",
+    "edition_year": 1936,
+    "created_at": "2026-10-20T19:48:19.078Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 27,
+  "fields": {
+    "title": "Casa-Grande & Senzala",
+    "author": "Gilberto Freyre",
+    "isbn": "9780000000023",
+    "copies_total": 1,
+    "image": "",
+    "category": 4,
+    "language": "Português",
+    "publisher": "",
+    "edition_year": 1933,
+    "created_at": "2026-10-20T19:48:19.084Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 28,
+  "fields": {
+    "title": "Reinações de Narizinho",
+    "author": "Monteiro Lobato",
+    "isbn": "9780000000024",
+    "copies_total": 2,
+    "image": "",
+    "category": 5,
+    "language": "Português",
+    "publisher": "",
+    "edition_year": 1931,
+    "created_at": "2026-10-20T19:48:19.090Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 29,
+  "fields": {
+    "title": "Harry Potter e a Pedra Filosofal",
+    "author": "J. K. Rowling",
+    "isbn": "9780000000025",
+    "copies_total": 3,
+    "image": "",
+    "category": 5,
+    "language": "Português",
+    "publisher": "",
+    "edition_year": 1997,
+    "created_at": "2026-10-20T19:48:19.097Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 30,
+  "fields": {
+    "title": "O Hobbit",
+    "author": "J. R. R. Tolkien",
+    "isbn": "9780000000026",
+    "copies_total": 2,
+    "image": "",
+    "category": 5,
+    "language": "Português",
+    "publisher": "",
+    "edition_year": 1937,
+    "created_at": "2026-10-22T18:00:19.099Z"
+  }
+},
+{
+  "model": "catalog.book",
+  "pk": 31,
+  "fields": {
+    "title": "Le Petit Prince",
+    "author": "Antoine de Saint-Exupéry",
+    "isbn": "9780000000027",
+    "copies_total": 1,
+    "image": "",
+    "category": 5,
+    "language": "Francês",
+    "publisher": "",
+    "edition_year": 1943,
+    "created_at": "2026-10-22T18:00:19.109Z"
+  }
+},
+{
+  "model": "catalog.loan",
+  "pk": 1,
+  "fields": {
+    "book": 2,
+    "user": [
+      "maria"
+    ],
+    "borrowed_at": "2026-10-20T19:20:21.163Z",
+    "due_date": "2026-10-20",
+    "returned_at": "2026-10-20T19:41:45.905Z"
+  }
+},
+{
+  "model": "catalog.loan",
+  "pk": 2,
+  "fields": {
+    "book": 1,
+    "user": [
+      "JonatasAdmin"
+    ],
+    "borrowed_at": "2026-10-20T19:21:06.010Z",
+    "due_date": "2025-10-18",
+    "returned_at": "2026-10-20T19:21:40.875Z"
+  }
+},
+{
+  "model": "catalog.loan",
+  "pk": 3,
+  "fields": {
+    "book": 4,
+    "user": [
+      "maria"
+    ],
+    "borrowed_at": "2026-10-20T19:24:03.437Z",
+    "due_date": "2026-11-03",
+    "returned_at": "2026-10-20T19:24:33.093Z"
+  }
+},
+{
+  "model": "catalog.loan",
+  "pk": 4,
+  "fields": {
+    "book": 3,
+    "user": [
+      "maria"
+    ],
+    "borrowed_at": "2026-10-20T19:41:11.479Z",
+    "due_date": "2026-11-03",
+    "returned_at": "2026-10-20T19:41:45.180Z"
+  }
+},
+{
+  "model": "catalog.loan",
+  "pk": 5,
+  "fields": {
+    "book": 2,
+    "user": [
+      "JonatasAdmin"
+    ],
+    "borrowed_at": "2026-10-20T19:50:59.529Z",
+    "due_date": "2026-11-03",
+    "returned_at": "2026-10-20T19:51:01.262Z"
+  }
+},
+{
+  "model": "catalog.loan",
+  "pk": 6,
+  "fields": {
+    "book": 2,
+    "user": [
+      "maria"
+    ],
+    "borrowed_at": "2026-10-20T19:51:31.378Z",
+    "due_date": "2026-10-01",
+    "returned_at": "2026-10-20T19:51:45.357Z"
+  }
+},
+{
+  "model": "catalog.loan",
+  "pk": 7,
+  "fields": {
+    "book": 14,
+    "user": [
+      "Clarêncio"
+    ],
+    "borrowed_at": "2026-10-22T18:26:52.853Z",
+    "due_date": "2026-11-05",
+    "returned_at": "2026-10-22T18:26:56.151Z"
+  }
+},
+{
+  "model": "catalog.loan",
+  "pk": 8,
+  "fields": {
+    "book": 14,
+    "user": [
+      "Clarêncio"
+    ],
+    "borrowed_at": "2026-10-22T18:27:14.077Z",
+    "due_date": "2026-11-05",
+    "returned_at": null
+  }
+}
+]

@@ -1,6 +1,23 @@
+from urllib.parse import urlencode  # transforma um dicionário em texto de URL: {"q": "x"} -> "q=x"
+
 from django.conf import settings  # dá acesso às configurações do projeto (settings.py)
 from django.db import models  # classes base para criar models e campos
 from django.utils import timezone  # datas e horas respeitando o TIME_ZONE do projeto
+
+
+class Category(models.Model):
+    """Gênero ou assunto de um livro (Romance, Tecnologia, História...)."""
+
+    name = models.CharField("Nome", max_length=100, unique=True)  # não pode haver duas categorias iguais
+    description = models.TextField("Descrição", blank=True)  # texto longo e opcional
+
+    class Meta:
+        ordering = ["name"]
+        verbose_name = "Categoria"
+        verbose_name_plural = "Categorias"
+
+    def __str__(self):
+        return self.name
 
 
 class Book(models.Model):
@@ -14,6 +31,21 @@ class Book(models.Model):
     copies_total = models.PositiveIntegerField("Cópias totais", default=1)  # inteiro >= 0; vale 1 se ninguém informar
     # Capa opcional: o arquivo é salvo em media/book_covers/ e o banco guarda só o caminho
     image = models.ImageField("Capa", upload_to="book_covers/", blank=True, null=True)
+
+    # Campos da Aula 4. Todos são opcionais para não quebrar os livros que já estavam cadastrados.
+    # SET_NULL: se a categoria for apagada, o livro continua existindo, só que sem categoria.
+    category = models.ForeignKey(
+        Category,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="books",  # permite fazer categoria.books.all()
+        verbose_name="Categoria",
+    )
+    language = models.CharField("Idioma", max_length=50, blank=True)
+    publisher = models.CharField("Editora", max_length=150, blank=True)
+    edition_year = models.PositiveSmallIntegerField("Ano de edição", null=True, blank=True)
+
     created_at = models.DateTimeField("Cadastrado em", auto_now_add=True)  # preenchido sozinho na criação
 
     class Meta:
@@ -33,6 +65,11 @@ class Book(models.Model):
         active_loans = self.loans.filter(returned_at__isnull=True).count()
         # max(..., 0) garante que o resultado nunca seja negativo
         return max(self.copies_total - active_loans, 0)
+    
+    def was_borrowed_by(self, user):
+        """Esta pessoa já pegou este livro emprestado alguma vez?"""
+        # exists() só pergunta ao banco se há algum registro, sem trazer os dados
+        return self.loans.filter(user=user).exists()
 
 
 class Loan(models.Model):
@@ -82,3 +119,64 @@ class Loan(models.Model):
             self.returned_at = timezone.now()  # data e hora atuais
             # update_fields grava só esta coluna, sem regravar o registro inteiro
             self.save(update_fields=["returned_at"])
+
+
+class SearchQuery(models.Model):
+    """Uma busca feita por um usuário, guardada para o histórico."""
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="searches",  # permite fazer user.searches.all()
+        verbose_name="Usuário",
+    )
+    q = models.CharField("Texto buscado", max_length=255, blank=True)
+    # JSONField guarda um dicionário inteiro, ex.: {"q": "python", "categoria": "3"}.
+    # default=dict (sem parênteses): cada busca nova recebe o seu próprio dicionário vazio.
+    params = models.JSONField("Filtros usados", default=dict, blank=True)
+    created_at = models.DateTimeField("Feita em", auto_now_add=True)
+
+    class Meta:
+        ordering = ["-created_at"]  # buscas mais recentes primeiro
+        verbose_name = "Busca"
+        verbose_name_plural = "Buscas"
+
+    def __str__(self):
+        return f"{self.user} buscou “{self.q or '(só filtros)'}”"
+
+    def as_querystring(self):
+        """Transforma os filtros guardados de volta em texto de URL ('q=...&categoria=...')."""
+        return urlencode(self.params)
+    
+class Review(models.Model):
+    """Nota (1 a 5 estrelas) e comentário de um leitor sobre um livro."""
+
+    # Lista de pares (valor guardado no banco, texto exibido): [(1, "★"), (2, "★★"), ...]
+    RATING_CHOICES = [(n, "★" * n) for n in range(1, 6)]
+
+    book = models.ForeignKey(
+        Book, on_delete=models.CASCADE, related_name="reviews", verbose_name="Livro"
+    )
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="reviews",
+        verbose_name="Usuário",
+    )
+    # choices limita os valores aceitos e cria o método get_rating_display()
+    rating = models.PositiveSmallIntegerField("Nota", choices=RATING_CHOICES)
+    comment = models.TextField("Comentário", blank=True)  # opcional
+    created_at = models.DateTimeField("Criada em", auto_now_add=True)  # preenchido só na criação
+    updated_at = models.DateTimeField("Atualizada em", auto_now=True)  # atualizado a cada save()
+
+    class Meta:
+        ordering = ["-created_at"]
+        verbose_name = "Avaliação"
+        verbose_name_plural = "Avaliações"
+        constraints = [
+            # Regra garantida pelo próprio banco: 1 avaliação por pessoa por livro
+            models.UniqueConstraint(fields=["book", "user"], name="uma_avaliacao_por_leitor"),
+        ]
+
+    def __str__(self):
+        return f"{self.user} deu {self.rating} ★ para “{self.book.title}”"
